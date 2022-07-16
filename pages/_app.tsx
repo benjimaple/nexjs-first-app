@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 // import { UserContext } from "@lib/context";
 import Navbar from "../components/Navbar";
+import React from 'react'
 
 function MyApp({ Component, pageProps }) {
   // const userData = userData();
