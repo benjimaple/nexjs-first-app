@@ -1,6 +1,10 @@
 // Import the functions you need from the SDKs you need
-import {FirebaseApp, initializeApp} from 'firebase/app';
-import {getAuth} from 'firebase/auth';
+import { create } from 'domain';
+import {FirebaseApp, initializeApp, } from 'firebase/app';
+// import {firebase} fom 'firebase/'
+import {getAuth, createUserWithEmailAndPassword, UserCredential} from 'firebase/auth';
+import { firebaseConfig } from './environment';
+
 
 // import { initializeApp } from "firebase/app";
 
@@ -8,24 +12,15 @@ import {getAuth} from 'firebase/auth';
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-
-// Your web app's Firebase configuration
-
-const firebaseConfig = {
-  apiKey: process.env.FIRE_BASE_KEY,
-  authDomain: process.env.FIRE_BASE_AUTH_DOMAIN,
-  projectId:process.env.FIRE_BASE_PROJECT_ID, 
-  storageBucket: process.env.FIRE_BASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIRE_BASE_SENDER_ID,
-  appId: process.env.FIRE_BASE_APP_ID,
-};
+const   app = initializeApp(firebaseConfig);
+const auth = getAuth(app)
 
 
-// Initialize Firebase
+export default  function createUser(email: string, password: string ): Promise<UserCredential> { 
+  return  createUserWithEmailAndPassword(auth, email, password);
+} 
 
-const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth()
 // export const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
 // export const fireStore = firebase.getFire
