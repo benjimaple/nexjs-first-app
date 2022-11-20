@@ -1,35 +1,35 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import React, { useState } from "react";
-import { BsChevronDown } from "react-icons/bs";
-import { BsStar } from "react-icons/bs";
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/Home.module.css'
+import React, { useState } from 'react'
+import { BsChevronDown } from 'react-icons/bs'
+import { BsStar } from 'react-icons/bs'
 
 export default function Home() {
-  const expansionRef = React.createRef<HTMLDivElement>();
+  const expansionRef = React.createRef<HTMLDivElement>()
 
-  const [dropdownState, setDropdownState] = useState(false);
-  const [dropdownDisplay, setDropdownDisplay] = useState("Select Option");
+  const [dropdownState, setDropdownState] = useState(false)
+  const [dropdownDisplay, setDropdownDisplay] = useState('Select Option')
 
-  const [expanded, toggleExpansion] = useState(false);
+  const [expanded, toggleExpansion] = useState(false)
 
   function toggleDropdown(): void {
-    setDropdownState((state) => !state);
+    setDropdownState((state) => !state)
   }
 
   function selectOption(value: number): void {
-    setDropdownDisplay("selected option");
-    toggleDropdown();
+    setDropdownDisplay('selected option')
+    toggleDropdown()
   }
 
   function expand(): void {
-    console.log(expansionRef);
+    console.log(expansionRef)
     if (expansionRef.current.style.maxHeight) {
-      expansionRef.current.style.maxHeight = null;
+      expansionRef.current.style.maxHeight = null
     } else {
       // toggleExpansion((state) => !state);
       expansionRef.current.style.maxHeight =
-        expansionRef.current.scrollHeight.toString() + "px";
+        expansionRef.current.scrollHeight.toString() + 'px'
     }
   }
 
@@ -66,7 +66,7 @@ export default function Home() {
             </div>
             <div
               className={`flex flex-col border border-gray-400 border-t-0 ${
-                dropdownState ? "flex" : "hidden"
+                dropdownState ? 'flex' : 'hidden'
               }`}
             >
               <button
@@ -177,5 +177,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  );
+  )
 }

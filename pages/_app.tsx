@@ -1,20 +1,15 @@
-import "../styles/globals.css";
-// import { UserContext } from "@lib/context";
-import Navbar from "../components/Navbar";
-import React from "react";
-
-// require('dotenv').config()
+import '../styles/globals.css'
+import Navbar from '../components/Navbar'
+import React from 'react'
+import { NextUIProvider } from '@nextui-org/react'
 
 function MyApp({ Component, pageProps }) {
-  // const userData = userData(); /
-
   return (
-    // <UserContext.Provider value={userData}>
-    <div>
+    <NextUIProvider>
       <Navbar />
       <Component {...pageProps} />
-    </div>
-  );
+    </NextUIProvider>
+  )
 }
 
-export default MyApp;
+export default MyApp
